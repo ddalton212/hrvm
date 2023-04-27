@@ -56,10 +56,10 @@ struct ExportView: View {
    }
 
 
-   // private func exportData() {
-   //     let json = self.storageService.exportAllDataToJson() //NEED TO FIND .exportAllDataToJson() FUNCTION
-   //     sendDataToPhoneViaWC(dataToExport: json)
-   // }
+//    private func exportData() {
+//        let json = self.storageService.exportAllDataToJson() //NEED TO FIND .exportAllDataToJson() FUNCTION
+//        sendDataToPhoneViaWC(dataToExport: json)
+//    }
   
 
 

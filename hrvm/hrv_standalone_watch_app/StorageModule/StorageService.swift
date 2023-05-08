@@ -214,7 +214,7 @@ public class StorageService : ObservableObject {
     
     // MARK: - export APIs
     public func exportAllDataToCsv() -> String {
-        var dataToExport = ExportedEntites() // was spelled Entites
+        let dataToExport = ExportedEntites() // was spelled Entites
         
         // for now we will only export data store, and stress events
         dataToExport.lrDataStore = self.getLRDataStore()

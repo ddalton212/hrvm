@@ -26,7 +26,7 @@ public class StorageService : ObservableObject {
         // hr data
         newHrvReading.avgHeartRateBPM = hrvItem.avgHeartRateBPM
         newHrvReading.avgHeartRateMS = hrvItem.avgHeartRateMS
-        newHrvReading.hrSamples = CsvSerializerUtils.serialize(data: hrvItem.hrSamples)
+        newHrvReading.hrSamples = JsonSerializerUtils.serialize(data: hrvItem.hrSamples)
         
         // delta values
         newHrvReading.deltaHrv = hrvItem.deltaHrvValue
@@ -79,8 +79,8 @@ public class StorageService : ObservableObject {
         
         newEvent.id = event.id
         newEvent.timestamp = event.timestamp
-        newEvent.hrv = CsvSerializerUtils.serialize(data: event.hrv)
-        newEvent.hrvStore = CsvSerializerUtils.serialize(data: event.hrvStore)
+        newEvent.hrv = JsonSerializerUtils.serialize(data: event.hrv)
+        newEvent.hrvStore = JsonSerializerUtils.serialize(data: event.hrvStore)
         newEvent.label = event.stressed
         
         self.saveContext()
@@ -117,8 +117,8 @@ public class StorageService : ObservableObject {
     private func mapCDEventItemsToEventItems(stressEvents: [CD_EventItem]) -> [EventItem] {
         return stressEvents.map { (event) -> EventItem in
             // deserialize stored JSON to objects
-            let hrvItem = CsvSerializerUtils.deserialize(jsonString: event.hrv!) as HrvItem
-            let hrvStore = CsvSerializerUtils.deserialize(jsonString: event.hrvStore!) as [HrvItem]
+            let hrvItem = JsonSerializerUtils.deserialize(jsonString: event.hrv!) as HrvItem
+            let hrvStore = JsonSerializerUtils.deserialize(jsonString: event.hrvStore!) as [HrvItem]
             
             return EventItem(id: event.id!,
                              timestamp: event.timestamp!,
@@ -138,7 +138,7 @@ public class StorageService : ObservableObject {
         else {
             let lrDataStore = LRDataStore()
             
-            lrDataStore.samples = CsvSerializerUtils.deserialize(jsonString: cd_lrDataStore!.samples!) as [[HrvItem]]
+            lrDataStore.samples = JsonSerializerUtils.deserialize(jsonString: cd_lrDataStore!.samples!) as [[HrvItem]]
             lrDataStore.labels = cd_lrDataStore!.labels!
             lrDataStore.error = cd_lrDataStore!.error // error can be nil
             lrDataStore.size = Int(cd_lrDataStore!.size)
@@ -156,7 +156,7 @@ public class StorageService : ObservableObject {
             currentLrDataStore = CD_LRDataStore(context: context)
         }
         
-        currentLrDataStore!.samples = CsvSerializerUtils.serialize(data: datastore.samples)
+        currentLrDataStore!.samples = JsonSerializerUtils.serialize(data: datastore.samples)
         currentLrDataStore!.labels = datastore.labels
         currentLrDataStore!.error = datastore.error
         currentLrDataStore!.size = Int16(datastore.size)
@@ -184,7 +184,7 @@ public class StorageService : ObservableObject {
             fatalError("Unexpected results when fetching global LR Weights. No weights were found.")
         }
       
-        return cd_lrWeights!.weigths! // was spelled weigths
+        return cd_lrWeights!.weights! // was spelled weigths
     }
     
     public func saveLRWeights(lrWeights: [Double]) {
@@ -195,7 +195,7 @@ public class StorageService : ObservableObject {
             currentLrWeights = CD_LRWeights(context: context)
         }
         
-        currentLrWeights!.weigths = lrWeights // was spelled weigths
+        currentLrWeights!.weights = lrWeights // was spelled weigths
 
         self.saveContext()
     }
@@ -213,14 +213,14 @@ public class StorageService : ObservableObject {
     }
     
     // MARK: - export APIs
-    public func exportAllDataToCsv() -> String {
-        let dataToExport = ExportedEntites() // was spelled Entites
+    public func exportAllDataToJson() -> String {
+        let dataToExport = ExportedEntities() // was spelled Entites
         
         // for now we will only export data store, and stress events
         dataToExport.lrDataStore = self.getLRDataStore()
         dataToExport.eventItems = self.getAllStressEvents()
         
-        return CsvSerializerUtils.serialize(data: dataToExport)
+        return JsonSerializerUtils.serialize(data: dataToExport)
     }
     
     private func saveContext() {

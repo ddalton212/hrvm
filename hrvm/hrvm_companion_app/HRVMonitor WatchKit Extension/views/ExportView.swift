@@ -57,48 +57,48 @@ struct ExportView: View {
        }
    }
   
+//    private func exportData() {
+//        let csv = self.storageService.exportAllDataToCsv() // assuming this function exists to export data to CSV format
+//        sendDataToPhoneViaWC(dataToExport: csv)
+
+
+//        // disable the button
+//        self.isExported = true
+//    }
+
+
    private func exportData() {
-       let csv = self.storageService.exportAllDataToCsv() // assuming this function exists to export data to CSV format
-       sendDataToPhoneViaWC(dataToExport: csv)
-
-
+       let json = self.storageService.exportAllDataToJson()
+       sendDataToPhoneViaWC(dataToExport: json)
+      
        // disable the button
        self.isExported = true
    }
-
-
-   // private func exportData() {
-   //     let json = self.storageService.exportAllDataToJson()
-   //     sendDataToPhoneViaWC(dataToExport: json)
-      
-   //     // disable the button
-   //     self.isExported = true
-   // }
   
+//    private func sendDataToPhoneViaWC(dataToExport: String) {
+//        let csv = self.storageService.exportAllDataToCsv() // assuming this function exists to export data to CSV format
+//        guard let baseDirUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+//            return
+//        }
+//        let fileUrl = baseDirUrl.appendingPathComponent("export.csv") // change the file extension to .csv
+//        let string = dataToExport.data(using: .utf8)
+//        FileManager.default.createFile(atPath: fileUrl.path, contents: string)
+//        self.watchExportSession.transferFile(fileUrl, metadata: nil)
+//  }
+
+
    private func sendDataToPhoneViaWC(dataToExport: String) {
-       let csv = self.storageService.exportAllDataToCsv() // assuming this function exists to export data to CSV format
        guard let baseDirUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
            return
        }
-       let fileUrl = baseDirUrl.appendingPathComponent("export.csv") // change the file extension to .csv
-       let string = dataToExport.data(using: .utf8)
-       FileManager.default.createFile(atPath: fileUrl.path, contents: string)
-       self.watchExportSession.transferFile(fileUrl, metadata: nil)
-   }
-
-
-   // private func sendDataToPhoneViaWC(dataToExport: String) {
-   //     guard let baseDirUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-   //         return
-   //     }
       
-   //     let fileUrl = baseDirUrl.appendingPathComponent("export.json")
-   //     let fileContent = dataToExport.data(using: .utf8)
-   //     FileManager.default.createFile(atPath: fileUrl.path, contents: fileContent)
+       let fileUrl = baseDirUrl.appendingPathComponent("export.json")
+       let fileContent = dataToExport.data(using: .utf8)
+       FileManager.default.createFile(atPath: fileUrl.path, contents: fileContent)
 
 
-   //     self.watchExportSession.session?.transferFile(fileUrl, metadata: nil)
-   // }
+       self.watchExportSession.session?.transferFile(fileUrl, metadata: nil)
+   }
 }
 
 

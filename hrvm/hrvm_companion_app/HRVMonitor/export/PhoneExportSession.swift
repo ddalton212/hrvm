@@ -32,10 +32,10 @@ public class PhoneExportSession: NSObject, WCSessionDelegate, ObservableObject {
        let srcUrl = file.fileURL
       
        guard FileManager.default.fileExists(atPath: file.fileURL.path) else {
-           fatalError("File transfered from Watch does not exist")
+           fatalError("File transferred from Watch does not exist")
        }
       
-       let destUrl = try! FileManager.default.url(for: .documentDirectory, in:.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("export.csv") //use to be export.json
+       let destUrl = try! FileManager.default.url(for: .documentDirectory, in:.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("export.json") //use to be export.json
       
        // if the export.json file already exists, we must remove it
        if FileManager.default.fileExists(atPath: destUrl.path) {

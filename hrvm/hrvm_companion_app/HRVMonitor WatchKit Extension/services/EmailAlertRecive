@@ -1,0 +1,40 @@
+
+/*
+import WatchConnectivity
+
+// In your view controller or app delegate:
+class YourViewController: WCSessionDelegate {
+
+    var session: WCSession?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSession()
+    }
+
+    func setupSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+    }
+
+    // Implement the delegate method to handle received messages
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        if let action = message["action"] as? String, action == "sendEmail" {
+            // Perform necessary checks and preparations for sending the email
+            // Then trigger the email composition process
+            presentMailComposeViewController()
+        }
+    }
+
+    // Method to present the MFMailComposeViewController for email composition
+    func presentMailComposeViewController() {
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.setToRecipients(["recipient@example.com"])
+        mailComposer.setSubject("Subject of the email")
+        mailComposer.setMessageBody("Body of the email", isHTML: false)
+        present(mailComposer, animated: true, completion: nil)
+    }
+}

@@ -108,6 +108,17 @@ Future work:
   * Data storage
   * Model training
 
+## Trouble Shooting
+
+Not updating software and hardware complications.
+  * HRV application and companion app were successfully deployed and running. Newest version of both Xcode and MacOS had been released which created an error from that point on when trying to deploy the applications.
+  * Solution: update everything to the latest version. After this was done, everything worked again. 
+Updating software and hardware complications.
+  * We found that after Xcode, MacOS, or iOS were updated to their latest versions it only worked for a short time period. We started getting a consistent error and when looking into it found that it was most likely an 
+    Apple side bug from one of the updates.
+  * Solution: we did not find a guaranteed solution. There were many different ways we found through reading forms. We tried many but found no solution for us. We believe it could be an Apple certificate issue, but with
+    that said, we tried reinstalling certificates or deleting duplications and this did not work for us. The hope is in future updates this error does not occur and the applications can be deployed again.
+
 ## Beta Testing
 
 To apply to join the Test Flight application beta testing, please contact us at `hrv.monitor.e1@gmail.com`.

@@ -11,10 +11,10 @@ import SwiftUI
 class MoodUtils {
     public static func calculateMood(hrv: Double?) -> Color {
         if hrv != nil {
-            if hrv! <= Settings.MoodDangerHRVThreshold {
+            if hrv! <= Settings.DangerHRVThreshold {
                 return Color.red
             }
-            else if hrv! <= Settings.MoodWarningHRVThreshold {
+            else if hrv! <= Settings.WarningHRVThreshold {
                 return Color.yellow
             }
             // above warning threshold

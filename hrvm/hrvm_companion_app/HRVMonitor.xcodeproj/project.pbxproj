@@ -68,7 +68,6 @@
 		66DD93012849786B00D88A92 /* WatchExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DD93002849786B00D88A92 /* WatchExportSession.swift */; };
 		66DD9303284978D600D88A92 /* ExportedEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DD9302284978D600D88A92 /* ExportedEntities.swift */; };
 		889E7F4F29FDA4EB00B262AB /* SitStandPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E7F4E29FDA4EB00B262AB /* SitStandPoller.swift */; };
-		88EE10DA29AD7043003FD9A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE10D929AD7043003FD9A5 /* SettingsView.swift */; };
 		88EE10DC29AD7060003FD9A5 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE10DB29AD7060003FD9A5 /* ExportView.swift */; };
 		88EE10DE29AD7074003FD9A5 /* StressDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE10DD29AD7074003FD9A5 /* StressDataView.swift */; };
 /* End PBXBuildFile section */
@@ -213,7 +212,6 @@
 		66DD9302284978D600D88A92 /* ExportedEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedEntities.swift; sourceTree = "<group>"; };
 		66DD930628497C2700D88A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		889E7F4E29FDA4EB00B262AB /* SitStandPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitStandPoller.swift; sourceTree = "<group>"; };
-		88EE10D929AD7043003FD9A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		88EE10DB29AD7060003FD9A5 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		88EE10DD29AD7074003FD9A5 /* StressDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,7 +311,6 @@
 				66DD930628497C2700D88A92 /* Info.plist */,
 				88EE10DD29AD7074003FD9A5 /* StressDataView.swift */,
 				88EE10DB29AD7060003FD9A5 /* ExportView.swift */,
-				88EE10D929AD7043003FD9A5 /* SettingsView.swift */,
 				66DD921E28496C6900D88A92 /* HRVMonitorApp.swift */,
 				66DD922028496C6900D88A92 /* ContentView.swift */,
 				66DD922228496C6A00D88A92 /* Assets.xcassets */,
@@ -776,7 +773,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DD922128496C6900D88A92 /* ContentView.swift in Sources */,
-				88EE10DA29AD7043003FD9A5 /* SettingsView.swift in Sources */,
 				88EE10DE29AD7074003FD9A5 /* StressDataView.swift in Sources */,
 				66A0FDE1284AC13E005FB8DF /* PhoneExportSession.swift in Sources */,
 				88EE10DC29AD7060003FD9A5 /* ExportView.swift in Sources */,

@@ -3,10 +3,12 @@
 > EWU Team E1 undergrad senior project (CSCD 488 & 490)
 >
 > Project started: 1/17/2022
->
 > Project ended: 6/17/2022
+
+> EWU Team 6 undergrad senior project (CSCD 488 & 490)
+> 
 > Project part 2 started: 1/20/2023
-> Project part 2 ended:
+> Project part 2 ended: 6/17/2023
 
 ## Table of Contents
 
